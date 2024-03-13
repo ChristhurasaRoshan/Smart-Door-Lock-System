@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "404716225474",
+    "project_id": "my-smart-door-app",
+    "storage_bucket": "my-smart-door-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:404716225474:android:53fe38e1b2a175c8e9cc5b",
+        "android_client_info": {
+          "package_name": "com.example.mysmartdoorapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkj5G74lLAVCVHW7e_30HslWtfC_fv8c8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

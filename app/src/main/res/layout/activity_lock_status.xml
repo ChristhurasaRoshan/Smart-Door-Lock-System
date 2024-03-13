@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@color/colorPrimary"
+    tools:context=".LockStatusActivity">
+
+    <TextView
+        android:id="@+id/textlock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Your Door is Locked"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+
+    <ImageView
+        android:id="@+id/statuslock"
+        android:layout_width="300dp"
+        android:layout_height="280dp"
+        android:layout_below="@id/textlock"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/lock" />
+
+
+    <Button
+        android:id="@+id/lockbtn"
+        android:layout_width="220dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/statuslock"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/custom_button"
+        android:layout_marginTop="100dp"
+        android:textColor="@color/black"
+        android:text="Get Start"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
+
+
+
+
+
