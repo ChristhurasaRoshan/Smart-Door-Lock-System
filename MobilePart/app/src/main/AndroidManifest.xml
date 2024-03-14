@@ -45,7 +45,7 @@
             android:name=".PinAuthenticationActivity"
             android:exported="false" />
         <activity
-            android:name=".WifiConnect"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".CreatePinCodeActivity"
@@ -57,13 +57,13 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".SplashActivity"
             android:exported="false" />
         <activity
             android:name=".UnLockStatusActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".WifiConnect"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
