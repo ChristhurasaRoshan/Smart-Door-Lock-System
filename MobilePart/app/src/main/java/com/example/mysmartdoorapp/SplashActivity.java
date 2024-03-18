@@ -48,9 +48,9 @@ public class SplashActivity extends AppCompatActivity {
 
                             Intent intent;
                             if(status.equals("Open")){
-                                intent = new Intent(SplashActivity.this, LockStatusActivity.class);
-                            }else{
                                 intent = new Intent(SplashActivity.this, UnLockStatusActivity.class);
+                            }else{
+                                intent = new Intent(SplashActivity.this, LockStatusActivity.class);
                             }
                             startActivity(intent);
                             finish();
