@@ -121,7 +121,7 @@ public class WifiConnect extends AppCompatActivity {
     // Method to show password dialog when connecting to a Wi-Fi network
     private void showPasswordDialog(final String ssid) {
         final EditText passwordInput = new EditText(this);
-        passwordInput.setHint("Enter your Wi-Fi Password");
+        passwordInput.setHint("Enter Wi-Fi Password");
 
         // Create dialog for password input
         androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(this);
