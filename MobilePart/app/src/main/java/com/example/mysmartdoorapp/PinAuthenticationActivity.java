@@ -171,7 +171,7 @@ public class PinAuthenticationActivity extends AppCompatActivity implements View
                                         startActivity(intent);
                                         finish();
                                     }else{
-                                        Toast.makeText(PinAuthenticationActivity.this, "Wrong Pincode", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(PinAuthenticationActivity.this, "Wrong Passcode", Toast.LENGTH_SHORT).show();
                                     }
                                 }
 
