@@ -52,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
 
     ProgressDialog progressDialog;
 
+    private TextView txtRES;
+
+
     private OkHttpClient client = new OkHttpClient();
 
     @Override
@@ -181,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 String command = "http://192.168.4.1/" + cmd;
-                Log.d("Command--------------------", command);
+                Log.d("Command----------------------------", command);
                 Request request = new Request.Builder().url(command).build();
                 try {
                     Response response = client.newCall(request).execute();
