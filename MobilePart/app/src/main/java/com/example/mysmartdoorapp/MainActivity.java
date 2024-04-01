@@ -6,7 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
+import android.net.NetworkRequest;
 import android.os.Bundle;
 
 import android.view.View;
@@ -27,6 +32,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import okhttp3.OkHttpClient;
+
 public class MainActivity extends AppCompatActivity {
 
     SwitchCompat switchButton;
@@ -41,10 +48,26 @@ public class MainActivity extends AppCompatActivity {
 
     ProgressDialog progressDialog;
 
+    //private OkHttpClient client = new OkHttpClient();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        ConnectivityManager connManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+//        NetworkRequest.Builder builder = new NetworkRequest.Builder();
+//        builder.addTransportType (NetworkCapabilities. TRANSPORT_WIFI);
+//        builder.addCapability (NetworkCapabilities.NET_CAPABILITY_INTERNET);
+//        NetworkRequest request = builder.build();
+//        connManager.requestNetwork(request, new ConnectivityManager.NetworkCallback() {
+//            @Override
+//            public void onAvailable(@NonNull Network network) {
+//                connManager.bindProcessToNetwork(network);
+//            }
+//        });
+
+
         viewHistory= findViewById(R.id.historybtn);
         textopen = findViewById(R.id.textopen);
         textclose= findViewById(R.id.textclose);
@@ -102,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
                                 progressDialog.dismiss();
+
                             }
                         }
                     });
