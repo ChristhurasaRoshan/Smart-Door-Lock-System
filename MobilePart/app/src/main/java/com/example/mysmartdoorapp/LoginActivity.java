@@ -79,9 +79,8 @@ public class LoginActivity extends AppCompatActivity {
                     UserModel userModel = new UserModel(userName, userEmail, userPassword, "Close");
                     String id = task.getResult().getUser().getUid();
                     database.getReference().child("Users").child(id).setValue(userModel);
-                    sendEmailVerification();
-
-
+                    //sendEmailVerification();
+                    startActivity(new Intent(LoginActivity.this, CreatePinCodeActivity.class));
 
                 } else {
                     Toast.makeText(LoginActivity.this, "Error:" + task.getException(), Toast.LENGTH_SHORT).show();
@@ -90,30 +89,24 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void sendEmailVerification(){
-        FirebaseUser firebaseUser= firebaseAuth.getCurrentUser();
-        if(firebaseUser!=null){
-            firebaseUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    Toast.makeText(LoginActivity.this, "Verification Email is sent, verify and Go through Your App", Toast.LENGTH_SHORT).show();
-                    firebaseAuth.signOut();
-
-                    if (firebaseUser.isEmailVerified()==true){
-                        Toast.makeText(getApplicationContext(), "Registration successfull", Toast.LENGTH_SHORT).show();
-                        finish();
-                        startActivity(new Intent(LoginActivity.this,CreatePinCodeActivity.class));
-                    }
-                    else {
-                        Toast.makeText(getApplicationContext(), "Registration not successfull", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-        }
-        else{
-            Toast.makeText(LoginActivity.this, "Failed to send Verification", Toast.LENGTH_SHORT).show();
-        }
-    }
+//    private void sendEmailVerification(){
+//        FirebaseUser firebaseUser= firebaseAuth.getCurrentUser();
+//        if(firebaseUser!=null){
+//            firebaseUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+//                @Override
+//                public void onComplete(@NonNull Task<Void> task) {
+//                    Toast.makeText(LoginActivity.this, "Verification Email is sent, verify and Go through Your App", Toast.LENGTH_SHORT).show();
+//                    firebaseAuth.signOut();
+//                    finish();
+//                    startActivity(new Intent(LoginActivity.this, CreatePinCodeActivity.class));
+//
+//                }
+//            });
+//        }
+//        else{
+//            Toast.makeText(LoginActivity.this, "Failed to send Verification", Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
 
 }
