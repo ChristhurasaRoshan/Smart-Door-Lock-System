@@ -34,9 +34,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,27 +49,15 @@ public class MainActivity extends AppCompatActivity {
 
     ProgressDialog progressDialog;
 
-    private TextView txtRES;
 
 
-    private OkHttpClient client = new OkHttpClient();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ConnectivityManager connManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkRequest.Builder builder = new NetworkRequest.Builder();
-        builder.addTransportType (NetworkCapabilities. TRANSPORT_WIFI);
-        builder.addCapability (NetworkCapabilities.NET_CAPABILITY_INTERNET);
-        NetworkRequest request = builder.build();
-        connManager.requestNetwork(request, new ConnectivityManager.NetworkCallback() {
-            @Override
-            public void onAvailable(@NonNull Network network) {
-                connManager.bindProcessToNetwork(network);
-            }
-        });
 
 
         viewHistory= findViewById(R.id.historybtn);
@@ -132,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
                                 progressDialog.dismiss();
-                                sendCommand("open");
+
 
                             }
                         }
@@ -149,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
                                 progressDialog.dismiss();
-                                sendCommand("close");
+
                             }
                         }
                     });
@@ -179,37 +164,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void sendCommand (String cmd) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                String command = "http://192.168.4.1/" + cmd;
-                Log.d("Command----------------------------", command);
-                Request request = new Request.Builder().url(command).build();
-                try {
-                    Response response = client.newCall(request).execute();
-                    String myResponse = response.body().string();
-                    final String cleanResponse = myResponse.replaceAll("\\<.*?\\>", ""); // remove HTML tags
-                    cleanResponse.replace("\n", ""); // remove all new line characters
-                    cleanResponse.replace("\r", ""); // remove all carriage characters
-                    cleanResponse.replace(" ", ""); // removes all space characters
-                    cleanResponse.replace("\t", ""); // removes all tab characters
-                    cleanResponse.trim();
-                    Log.d("Response =", cleanResponse);
 
-
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            txtRES.setText(cleanResponse);
-                        }
-                    });
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            }).start();
-        }
 
 
 }
