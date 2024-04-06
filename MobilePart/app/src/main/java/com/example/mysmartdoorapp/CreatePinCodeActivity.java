@@ -246,6 +246,7 @@ public class CreatePinCodeActivity extends AppCompatActivity implements View.OnC
                                         }
                                     }
                                 });
+                                
                             }
                         }
                     });
