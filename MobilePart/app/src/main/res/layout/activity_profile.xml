@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:id="@+id/profileImageView"
-        android:paddingLeft="20dp"
+        android:paddingLeft="10dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,10 +33,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hi!!!  "
+                android:text="Hi!!! Welcome "
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                android:textSize="35dp"/>
+                android:textSize="30dp"/>
 
             <TextView
                 android:id="@+id/usertextname"
@@ -85,7 +85,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_supervised_user_circle_24" />
+                    android:src="@drawable/baseline_person_24" />
 
                 <TextView
                     android:layout_width="wrap_content"
