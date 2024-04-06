@@ -45,7 +45,7 @@
             android:name=".PinAuthenticationActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".SplashActivity"
             android:exported="false" />
         <activity
             android:name=".CreatePinCodeActivity"
@@ -63,7 +63,7 @@
             android:name=".UnLockStatusActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
