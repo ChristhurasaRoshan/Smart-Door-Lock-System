@@ -25,23 +25,23 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/profile_photo"
-            android:layout_gravity="start"/>
-
+            android:layout_marginRight="130dp"/>
 
         <ImageView
             android:id="@+id/notification"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_gravity="end"
+            android:layout_marginLeft="140dp"
             android:src="@drawable/baseline_circle_notifications_24" />
 
     </LinearLayout>
 
 
+
     <View
         android:id="@+id/line"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="58dp"
         android:background="@color/white"
