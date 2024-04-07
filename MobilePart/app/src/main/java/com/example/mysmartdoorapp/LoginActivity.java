@@ -100,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(new Intent(LoginActivity.this, CreatePinCodeActivity.class));
                         finish();
                     } else {
-                        Toast.makeText(LoginActivity.this, "Failed to send Verification", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Failed send Verification", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
