@@ -96,7 +96,7 @@ public class ProfileActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     dbref.removeValue();
                     FirebaseAuth.getInstance().signOut();
-                    Toast.makeText(ProfileActivity.this, "You ar Logout", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProfileActivity.this, "You are Logout", Toast.LENGTH_SHORT).show();
                     finish();
                     Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
                     startActivity(intent);
