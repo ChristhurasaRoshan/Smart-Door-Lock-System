@@ -14,7 +14,7 @@ FirebaseConfig firebaseConfig;
 FirebaseAuth firebaseAuth;
 
 // Define Firebase authentication token
-const char *FIREBASE_AUTH = "FMZ8xcG62eIHywkCnJpHlAG9jTeic3D1fMC0tq4u";
+const char *FIREBASE_AUTH = "fd38f6058695774a9b826c8fff71f14773aab6e6";
 
 void setup() {
   Serial.begin(115200);
