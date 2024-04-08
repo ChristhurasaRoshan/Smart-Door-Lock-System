@@ -42,7 +42,7 @@ public class CreatePinCodeActivity extends AppCompatActivity implements View.OnC
         setContentView(R.layout.activity_create_pin_code);
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+        FirebaseUser currentUser = mAuth.getCurrentUser(); //change
 
 
         if (currentUser != null) {
