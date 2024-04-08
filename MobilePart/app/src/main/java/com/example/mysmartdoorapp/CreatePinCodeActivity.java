@@ -1,5 +1,6 @@
 package com.example.mysmartdoorapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -13,6 +14,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -26,7 +29,7 @@ public class CreatePinCodeActivity extends AppCompatActivity implements View.OnC
     Button btn_1,btn_2,btn_3,btn_4,btn_5,btn_6,btn_7,btn_8,btn_9,btn_0,btn_clear,createbtn,btn_01,btn_02,btn_03,btn_04,btn_05,btn_06,btn_07,btn_08,btn_09,btn_00,btn_0clear,verifybtn;
 
     ArrayList<String> numbers_list = new ArrayList<>();
-    ArrayList<String> numbers_list0 = new ArrayList<>();
+    ArrayList<String> numbers_list0 = new ArrayList<>(); 
 
     String enterPin= "";
     String verifyPin= "";
@@ -224,9 +227,27 @@ public class CreatePinCodeActivity extends AppCompatActivity implements View.OnC
                         @Override
                         public void onClick(View view) {
                             enterPin = num_1 + num_2 + num_3 + num_4;
-                            Toast.makeText(CreatePinCodeActivity.this, "Create Passcode", Toast.LENGTH_SHORT).show();
-                            createlayout.setVisibility(View.GONE);
-                            verifylayout.setVisibility(View.VISIBLE);
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            if (user != null && user.isEmailVerified()) {
+                                Toast.makeText(CreatePinCodeActivity.this, "Create Passcode", Toast.LENGTH_SHORT).show();
+                                createlayout.setVisibility(View.GONE);
+                                verifylayout.setVisibility(View.VISIBLE);
+                            } else {
+                                Toast.makeText(CreatePinCodeActivity.this, "Please verify your email first", Toast.LENGTH_SHORT).show();
+                                user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(CreatePinCodeActivity.this, "Sucessful verification", Toast.LENGTH_SHORT).show();
+                                            createlayout.setVisibility(View.GONE);
+                                            verifylayout.setVisibility(View.VISIBLE);
+                                        } else {
+                                            Toast.makeText(CreatePinCodeActivity.this, "Please verify your email first", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                                
+                            }
                         }
                     });
                     break;

@@ -6,12 +6,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
+import android.net.NetworkRequest;
 import android.os.Bundle;
-import android.os.Handler;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,8 +30,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,10 +49,17 @@ public class MainActivity extends AppCompatActivity {
 
     ProgressDialog progressDialog;
 
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         viewHistory= findViewById(R.id.historybtn);
         textopen = findViewById(R.id.textopen);
         textclose= findViewById(R.id.textclose);
@@ -102,8 +117,12 @@ public class MainActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
                                 progressDialog.dismiss();
+
+
                             }
                         }
+
+
                     });
                     textopen.setVisibility(View.GONE);
                     textclose.setVisibility(View.VISIBLE);
@@ -115,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
                                 progressDialog.dismiss();
+
                             }
                         }
                     });
@@ -124,6 +144,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
 
 
         viewHistory.setOnClickListener(new View.OnClickListener() {
@@ -141,6 +163,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
 
 }
