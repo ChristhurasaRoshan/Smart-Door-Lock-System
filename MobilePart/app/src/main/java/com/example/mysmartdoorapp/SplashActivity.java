@@ -36,7 +36,7 @@ public class SplashActivity extends AppCompatActivity {
 
                 FirebaseUser currentUser = mAuth.getCurrentUser();
 
-
+                //check
                 if (currentUser != null) {
                     String userId = currentUser.getUid();
                     dbref = FirebaseDatabase.getInstance().getReference().child("Users").child(userId).child("currentStatus");

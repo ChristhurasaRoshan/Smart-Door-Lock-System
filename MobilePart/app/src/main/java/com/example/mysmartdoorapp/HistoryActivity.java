@@ -76,7 +76,7 @@ public class HistoryActivity extends AppCompatActivity {
             });
 
         } else {
-            // Handle the case where the user is not signed in
+            // Handle the case where user is not signed in
         }
 
 
