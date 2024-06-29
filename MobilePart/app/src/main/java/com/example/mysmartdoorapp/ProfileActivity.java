@@ -87,6 +87,15 @@ public class ProfileActivity extends AppCompatActivity {
 
                 }
             });
+            //user profile section
+            CardView userprofile = findViewById(R.id.carduserprofile);
+            userprofile.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(ProfileActivity.this, UserProfileActivity.class);
+                    startActivity(intent);
+                }
+            });
 
 
             //logout section
